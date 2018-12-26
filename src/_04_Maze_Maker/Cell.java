@@ -1,107 +1,49 @@
 package _04_Maze_Maker;
-import java.awt.Color;
+
 import java.awt.Graphics;
 
-public class MCell {
-	public static final int X_MARGIN = 100;
-	public static final int Y_MARGIN = 100;
-	
-	private int x;
-	private int y;
-	
-	private int size = 100;
-	
-	private boolean visited;
-	
-	private boolean northWall;
-	private boolean southWall;
-	private boolean eastWall; 
-	private boolean westWall;
-	
-	public MCell(int x, int y){
-		this.x = x;
-		this.y = y;
-		
-		visited = false;
-		
-		northWall = true;
-		southWall = true;
-		eastWall = true;
-		westWall = true;
+public class Maze {
+	// 1. Create a 2D array of cells. Don't initialize it.
+	MCell[][] Cells;
+	private int width;
+	private int height;
+
+	public Maze(int w, int h) {
+		this.width = w;
+		this.height = h;
+
+		// 2. Initialize the cells using the width and height varibles
+		Cells = new MCell[width][height];
+
+		// 3. Iterated through each cell and initialize it
+		// using i and j as the location
+		for (int i = 0; i < Cells.length; i++) {
+			for (int j = 0; j < Cells[i].length; j++) {
+				Cells[i][j] = new MCell(i, j);
+			}
+		}
+
 	}
-	
-	public void draw(Graphics g){
-		g.setColor(Color.BLUE);
-		g.fillOval((x * size) + (size / 2) + X_MARGIN, (y * size) + (size / 2) + Y_MARGIN, 4, 4);
-		
-		g.setColor(Color.RED);
-		if(northWall){
-			g.drawLine((x * size) + X_MARGIN, (y * size) + Y_MARGIN, (x * size) + size + X_MARGIN, (y * size) + Y_MARGIN);
-		}
-		if(southWall){
-			g.drawLine((x * size) + X_MARGIN, (y * size) + size + Y_MARGIN, (x * size) + size + X_MARGIN, (y * size) + size + Y_MARGIN);
-		}
-		if(eastWall){
-			g.drawLine((x * size) + size + X_MARGIN, (y * size) + Y_MARGIN, (x * size) + size + X_MARGIN, (y * size) + size + Y_MARGIN);
-		}
-		if(westWall){
-			g.drawLine((x * size) + X_MARGIN, (y * size) + Y_MARGIN, (x * size) + X_MARGIN, (y * size) + size + Y_MARGIN);
+
+	// 4. This method iterates through the cells and draws them
+	public void draw(Graphics g) {
+		for (int i = 0; i < Cells.length; i++) {
+			for (int j = 0; j < Cells[i].length; j++) {
+				Cells[i][j].draw(g);
+			}
 		}
 	}
 
-	public int getX() {
-		return x;
+	// 4b. This method returns the selected cell.
+	public MCell getCell(int x, int y) {
+		return Cells[x][y];
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public int getWidth() {
+		return width;
 	}
 
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public boolean hasBeenVisited() {
-		return visited;
-	}
-
-	public void setBeenVisited(boolean beenVisited) {
-		this.visited = beenVisited;
-	}
-
-	public boolean hasNorthWall() {
-		return northWall;
-	}
-
-	public void setNorthWall(boolean northWall) {
-		this.northWall = northWall;
-	}
-
-	public boolean hasSouthWall() {
-		return southWall;
-	}
-
-	public void setSouthWall(boolean southWall) {
-		this.southWall = southWall;
-	}
-
-	public boolean hasEastWall() {
-		return eastWall;
-	}
-
-	public void setEastWall(boolean eastWall) {
-		this.eastWall = eastWall;
-	}
-
-	public boolean hasWestWall() {
-		return westWall;
-	}
-
-	public void setWestWall(boolean westWall) {
-		this.westWall = westWall;
+	public int getHeight() {
+		return height;
 	}
 }
