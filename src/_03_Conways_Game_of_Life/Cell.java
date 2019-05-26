@@ -1,20 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- @theonak4 Sign out
-2
-0 0 league-level4-student/level4-module0-TheWrencat
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-level4-module0-TheWrencat/src/_03_Conways_Game_of_Life/Cell.java
-dbb2701  on Aug 23
- TheWrencat Working out the bugs on game of life
-     
-78 lines (63 sloc)  1.78 KB
 package _03_Conways_Game_of_Life;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -92,16 +76,4 @@ public class Cell implements Drawable{
 		
 	}
 }
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Press h to open a hovercard with more details.
+

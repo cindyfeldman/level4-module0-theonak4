@@ -1,6 +1,7 @@
 package _01_Crazy_Digital_Painting;
 
 import java.awt.Color;
+import java.util.concurrent.ForkJoinPool;
 
 public class CrazyDigitalPainting {
 	//1. Create two final static integers for the width and height of the display.
@@ -21,10 +22,13 @@ public class CrazyDigitalPainting {
 		//   pattern:
 		for(int i = 0; i < color2d.length; i++) {
 			for(int j = 0; j < color2d[i].length; j++) {
-				//color2d[i][j] = new Color(i % 256, (i * j) % 256, j % 256);
-				color2d[i][j] = new Color((i + j * 100) % 256, (i + j *100) % 256, (j + i %5) %256);
+				color2d[i][j] = new Color(i % 256, (i * j) % 256, j % 256);
+				color2d[i][j] = new Color((i + j * 200) % 256, (i + j *10) % 256, (j +j %5) %250);
+				
+				
+			
 			}
-		}
+			}
 		//5. Come up with your own pattern to make a cool crazy image.
 		
 		//6. Use the ColorArrayDisplayer class to call the displayColorsAsImage method 
